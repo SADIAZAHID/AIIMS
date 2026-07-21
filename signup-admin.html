@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin Sign In - AIIMS</title>
+  <title>Admin Sign Up - AIIMS</title>
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap"
     rel="stylesheet">
@@ -210,17 +210,6 @@
       color: #334155;
     }
 
-    .forgot-link-custom {
-      color: #c81e1e;
-      font-size: 0.85rem;
-      font-weight: 600;
-      text-decoration: none;
-    }
-
-    .forgot-link-custom:hover {
-      text-decoration: underline;
-    }
-
     .input-wrap-custom {
       position: relative;
     }
@@ -299,28 +288,6 @@
       background-color: #991b1b;
     }
 
-
-
-
-
-    .back-link-custom {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      color: #94a3b8;
-      font-size: 0.9rem;
-      font-weight: 500;
-      text-decoration: none;
-      margin-top: 2.5rem;
-      transition: color 0.2s;
-      justify-content: center;
-      width: 100%;
-    }
-
-    .back-link-custom:hover {
-      color: #64748b;
-    }
-
     @media (max-width: 900px) {
       .login-left-custom {
         display: none;
@@ -331,9 +298,8 @@
 
 <body>
   <div class="login-wrapper">
-    <!-- Left Panel -->
+    <!-- Left Panel (Same as login-admin.html) -->
     <div class="login-left-custom">
-
       <div class="logo-area">
         <div class="logo-icon">
           <!-- Graduation Cap Icon -->
@@ -355,7 +321,7 @@
             d="M5 10V7a7 7 0 1114 0v3a3 3 0 013 3v8a3 3 0 01-3 3H5a3 3 0 01-3-3v-8a3 3 0 013-3zm2 0h10V7a5 5 0 10-10 0v3z">
           </path>
         </svg>
-        Secure & Encrypted Login
+        Secure & Encrypted Registration
       </div>
 
       <h2 class="left-title">Manage your institute<br>with the power of AI</h2>
@@ -381,30 +347,41 @@
         <div class="sa-avatar">SA</div>
         <div class="sa-info">
           <span class="sa-name">Super Administrator</span>
-          <span class="sa-meta">Full system access &middot; Last login: Today 09:14 AM</span>
+          <span class="sa-meta">Full system access &middot; Available upon registration</span>
         </div>
       </div>
-
     </div>
 
-    <!-- Right Panel -->
+    <!-- Right Panel (Sign Up Form) -->
     <div class="login-right-custom">
       <div class="form-container">
-
         <div class="form-header-custom">
-          <h1>Welcome back</h1>
-          <p>Sign in to your administrator account</p>
+          <h1>Create an account</h1>
+          <p>Sign up as a new administrator</p>
         </div>
 
-        <form onsubmit="handleLogin(event)">
+        <form onsubmit="handleSignup(event)">
+          <!-- Full Name -->
+          <div class="field-group-custom">
+            <div class="label-row">
+              <label for="name">Full Name</label>
+            </div>
+            <div class="input-wrap-custom">
+              <svg class="input-icon-left" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+              <input type="text" id="name" class="input-custom" placeholder="John Doe" required>
+            </div>
+          </div>
 
+          <!-- Email Address -->
           <div class="field-group-custom">
             <div class="label-row">
               <label for="email">Email Address</label>
             </div>
             <div class="input-wrap-custom">
-              <svg class="input-icon-left" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                stroke-width="2">
+              <svg class="input-icon-left" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                 <polyline points="22,6 12,13 2,6"></polyline>
               </svg>
@@ -412,41 +389,48 @@
             </div>
           </div>
 
+          <!-- Password -->
           <div class="field-group-custom">
             <div class="label-row">
               <label for="password">Password</label>
-              <a href="#" class="forgot-link-custom">Forgot password?</a>
             </div>
             <div class="input-wrap-custom">
-              <svg class="input-icon-left" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                stroke-width="2">
+              <svg class="input-icon-left" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
                 <path d="M7 11V7a5 5 0 0110 0v4"></path>
               </svg>
-              <input type="password" id="password" class="input-custom"
-                placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" required
-                style="font-family: monospace; font-size: 1.1rem; letter-spacing: 2px;">
-              <svg class="input-icon-right" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                stroke-width="2">
-                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                <circle cx="12" cy="12" r="3"></circle>
-              </svg>
+              <input type="password" id="password" class="input-custom" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" required style="font-family: monospace; font-size: 1.1rem; letter-spacing: 2px;">
             </div>
           </div>
 
-          <div class="remember-row">
-            <input type="checkbox" id="remember" checked>
-            <label for="remember">Remember me for 30 days</label>
+          <!-- Confirm Password -->
+          <div class="field-group-custom">
+            <div class="label-row">
+              <label for="confirm-password">Confirm Password</label>
+            </div>
+            <div class="input-wrap-custom">
+              <svg class="input-icon-left" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                <path d="M7 11V7a5 5 0 0110 0v4"></path>
+              </svg>
+              <input type="password" id="confirm-password" class="input-custom" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" required style="font-family: monospace; font-size: 1.1rem; letter-spacing: 2px;">
+            </div>
           </div>
 
-          <button type="submit" class="btn-submit-custom">Sign In</button>
+          <!-- Terms Checkbox -->
+          <div class="remember-row">
+            <input type="checkbox" id="terms" required>
+            <label for="terms">I agree to the Terms of Service and Privacy Policy</label>
+          </div>
+
+          <button type="submit" class="btn-submit-custom">Sign Up</button>
         </form>
 
-        <!-- Redirect to Signup -->
+        <!-- Redirect to Login -->
         <div style="text-align: center; margin-top: 2rem;">
           <p style="color: #64748b; font-size: 0.95rem;">
-            Don't have an account? 
-            <a href="signup-admin.html" style="color: #c81e1e; font-weight: 600; text-decoration: none;">Sign Up</a>
+            Already have an account? 
+            <a href="login-admin.html" style="color: #c81e1e; font-weight: 600; text-decoration: none;">Sign In</a>
           </p>
         </div>
 
@@ -454,14 +438,25 @@
     </div>
 
     <script>
-      function handleLogin(e) {
+      function handleSignup(e) {
         e.preventDefault();
+        const name = document.getElementById('name').value.trim();
         const email = document.getElementById('email').value.trim();
         const pass = document.getElementById('password').value.trim();
-        if (email && pass) { window.location.href = 'admin.html'; }
-        else { alert('Please enter valid credentials.'); }
+        const confirmPass = document.getElementById('confirm-password').value.trim();
+
+        if (pass !== confirmPass) {
+          alert('Passwords do not match. Please try again.');
+          return;
+        }
+
+        if (name && email && pass) { 
+          alert('Account created successfully!');
+          window.location.href = 'login-admin.html'; 
+        } else { 
+          alert('Please fill out all required fields.'); 
+        }
       }
     </script>
 </body>
-
 </html>

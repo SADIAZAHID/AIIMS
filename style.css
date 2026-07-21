@@ -2,10 +2,10 @@
 
 :root {
   /* Color Tokens */
-  --admin-red: #dc2626;
-  --admin-red-light: #fef2f2;
-  --admin-red-border: #fca5a5;
-  --admin-red-hover: #b91c1c;
+  --admin-red: #4f46e5; /* Deep Indigo */
+  --admin-red-light: #e0e7ff;
+  --admin-red-border: #a5b4fc;
+  --admin-red-hover: #4338ca;
 
   --faculty-blue: #2563eb;
   --faculty-blue-light: #eff6ff;
@@ -1125,4 +1125,69 @@ h1, h2, h3, h4, h5, h6 {
   .stats-grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* Hidden Side Menu */
+.hidden-side-menu {
+  position: fixed;
+  top: 0;
+  right: -320px;
+  width: 320px;
+  height: 100vh;
+  background-color: white;
+  box-shadow: -5px 0 25px rgba(0,0,0,0.1);
+  transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+}
+
+.hidden-side-menu.open {
+  right: 0;
+}
+
+.hidden-menu-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--border-light);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hidden-menu-header h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.hidden-menu-body {
+  padding: 1.5rem;
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.hidden-menu-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.hidden-menu-list a {
+  text-decoration: none;
+  color: var(--text-dark);
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0.85rem 1rem;
+  border-radius: 10px;
+  display: block;
+  transition: all var(--transition-fast);
+  background-color: var(--bg-gray);
+  border: 1px solid var(--border-light);
+}
+
+.hidden-menu-list a:hover {
+  background-color: var(--admin-red-light);
+  color: var(--admin-red);
+  border-color: var(--admin-red-border);
+  transform: translateX(4px);
 }
